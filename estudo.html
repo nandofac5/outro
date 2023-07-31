@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            text-align: center;
+            justify-content: center;
+        }
+        .entrada{
+            font-size: 25px;
+            border-style: none;
+            background-color: antiquewhite;
+ 
+        }
+        .sinal{
+       
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+        <header>
+            <p><h2>Indicador de Compra e Venda (baseado em IFR)</h2></p>
+            <p><h4>Válido somenta para Mini-índice</h4></p>
+        </header>
+        
+        <p>Gráfico de 15minutos</p>
+        <input class="entrada" type="number" name="statusifr" id="statusifr" placeholder="Insira o IFR  encontrado do gráfico">
+        <div class="sinal" id="text"></div>
+      
+       
+        <script>
+            // Seu código original para calcular o sinal
+            function calcular() {
+                var statusifr = document.querySelector('input#statusifr')
+                var n = Number(statusifr.value)
+                var sinal = document.getElementById("text")
+                
+                if (n > 80) {
+                    sinal.innerHTML = "venda";
+                    sinal.style.color = "#FF0000"
+                    sinal.style.backgroundColor="#FA8072"
+                    sinal.style.borderRadius="5px"
+                    sinal.style.width="200"
+                    sinal.style.textAlign="center"
+                    setInterval(piscar, 500);
+                    sinal.style.fontSize="25px"
+                    
+    
+                } else if (n < 20) {
+                    sinal.innerHTML = "compra";
+                    sinal.style.color = "#008000";
+                    sinal.style.backgroundColor="#98FB98"
+                    sinal.style.borderRadius="5px"
+                    sinal.style.textAlign="center"
+                    sinal.style.fontSize="25px"
+                    
+                
+                    sinal.style.width="200"
+                } else {
+                    sinal.innerHTML = "Preço em região de indecisão"; // Limpa o texto se não atender a nenhum critério
+                    sinal.style.color = "#8B4513";
+                    sinal.style.backgroundColor="#F5DEB3"
+                    sinal.style.borderRadius="5px"
+                    sinal.style.textAlign="center"
+                    sinal.style.fontSize="25px"
+                }
+
+
+            }
+        
+            // Adiciona um ouvinte de evento para o evento oninput
+            document.getElementById("statusifr").addEventListener("input", calcular);
+        </script>
+ 
+    
+</body>
+</html>
