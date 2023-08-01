@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Console com Monaco Editor</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    #editor {
+      flex: 1;
+    }
+
+    #output {
+      flex: 1;
+      font-family: monospace;
+      font-size: 16px;
+      background-color: #f7f7f7;
+      padding: 10px;
+      overflow-y: auto;
+      height: 100vh;
+      
+     
+    }
+  </style>
+  <!-- Carregue a biblioteca do monaco-editor -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.js"></script>
+</head>
+<body>
+  <div id="editor"></div>
+  <div id="output"></div>
+
+  <script>
+    // Configura o caminho para os arquivos da biblioteca do monaco-editor
+    window.MonacoEnvironment = {
+      getWorkerUrl: function (moduleId, label) {
+        return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+          self.MonacoEnvironment = {
+            baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/'
+          };
+          importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/base/worker/workerMain.js');
+        `)}`;
+      }
+    };
+
+    // Carrega o editor de código-fonte
+    require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs' }});
+    require(['vs/editor/editor.main'], function() {
+      const editor = monaco.editor.create(document.getElementById('editor'), {
+        value: "var nome = 'fernando';\nconsole.log(nome);",
+        language: 'javascript',
+        theme: 'vs-dark'
+      });
+
+      // Define sugestões de autocompletar para as variáveis
+      monaco.languages.registerCompletionItemProvider('javascript', {
+        provideCompletionItems: function(model, position) {
+          const textUntilPosition = model.getValueInRange({ startLineNumber: 1, startColumn: 1, endLineNumber: position.lineNumber, endColumn: position.column });
+          const variables = textUntilPosition.match(/[a-zA-Z_]+\w*/g) || [];
+          const suggestions = variables.map(variable => ({
+            label: variable,
+            kind: monaco.languages.CompletionItemKind.Variable
+          }));
+          return { suggestions: suggestions };
+        }
+      });
+
+      // Sobrescreve a função console.log para mostrar a saída
+      console.log = function (...args) {
+        const output = document.getElementById('output');
+        output.innerHTML = args.join(' ') + '<br>';
+        output.scrollTop = output.scrollHeight;
+      };
+
+      // Executa o código no editor
+      function runCode() {
+        const code = editor.getValue();
+        if (code.trim() === '') {
+          const output = document.getElementById('output');
+          output.innerHTML = '';
+          return;
+        }
+        try {
+          eval(code);
+        } catch (error) {
+          console.log(`Erro: ${error.message}`);
+        }
+      }
+
+      // Atualiza a saída quando o conteúdo do editor é modificado
+      editor.onDidChangeModelContent(runCode);
+
+      // Executa o código inicialmente
+      runCode();
+    });
+  </script>
+</body>
+</html>

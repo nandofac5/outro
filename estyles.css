@@ -39,6 +39,13 @@
         border-style: dashed;
         margin-left: 20px;
     }
+    .comentarios{
+        background-color: rgb(39, 39, 39);
+        color: rgb(72, 128, 64);
+        border-radius: 5px;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
     .code:hover{
         background-color: rgb(10, 10, 179);
         margin-left: 25px;
