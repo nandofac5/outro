@@ -1,2 +1,2 @@
 # outro
-# testando github pela primeira vez.
+testando github pela primeira vez.
