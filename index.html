@@ -3,152 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprendendo JavaScript</title>
-    <style>
-    *{
-        font-family:monospace;
-        font-size: 18px;
-        font-weight: 500;
-        margin: 0;
-        background-color: rgb(66, 66, 168);
-    }
-    h1{
-        background-color: rgb(255, 242, 56);
-        color: rgb(0, 0, 0);
-        top: 0;
-        position: fixed;
-        width: 100vw;
-        padding-left: 5px;
-        
-    }
-    h2{
-        margin-top: 20px;
-        padding-left: 5px;
-    }
-    .code{
-        background-color: rgb(39, 39, 39);
-        color: white;
-        border-radius: 10px;
-        width: 500px;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: solid 1px ;
-        border-style: dashed;
-    }
-    .code:hover{
-        background-color: rgb(10, 10, 179);
-        
-    }
-    li{
-        background-color: rgb(146, 44, 194);
-        width: 400px;
-        border-radius: 5px;
-        color: white;
-        padding: 3px;
-        margin: 4px;
-        
-    }
-    li:hover{
-        background-color: rgb(95, 17, 131);
-    }
-    p{
-        background-color: rgb(216, 132, 255);
-        width: 600px;
-        border-radius: 5px;
-        padding: 2px;
-        margin: 4px;
-    }
-    </style>
-    
-    
+    <link rel="stylesheet" href="estyles.css"> 
+    <title>Aprendendo JavaScript</title> 
 </head>
 <body>
-    <h1>JavaScript</h1>
+    <h1>JavaScript Básico</h1>
+    <p class="intro">Bem-vindo ao "JavaScript Mastery" - O Seu Guia Completo para o Ensino Básico de JavaScript!
+        
+        Aprenda JavaScript do zero e domine a linguagem de programação mais popular do mundo. Nosso site é projetado para iniciantes que desejam embarcar em uma jornada de aprendizado envolvente e eficaz, capacitando-os a criar aplicações web interativas e dinâmicas.</p>
 
-    <h2>Números</h2>
+    <h2>Variáveis e tipos de dados.</h2>
     <ul>
-        <li>Inteiros e Números de Ponto Flutuante.</li>
-            <ul>
-                <li>Representação de Números Inteiros em JavaScript.</li>
-                <ul class="code">let inteiro1 = 42; // Número inteiro<br>
-                    let inteiro2 = -15; // Número inteiro negativo<br>
-                    let inteiro3 = 0; // O número zero também é um inteiro
-                    </ul>
-            </ul>
-            <ul>
-                <li>Representação de Números de Ponto Flutuante (números com casas decimais).</li>
-                <ul class="code">let decimal1 = 3.14; // Número de ponto flutuante<br>
-                    let decimal2 = -2.5; // Número de ponto flutuante negativo<br>
-                    let decimal3 = 0.75; // Número de ponto flutuante entre 0 e 1
-                </ul>
-            </ul>
-            <ul>
-                <li>Operações Aritméticas com Inteiros e Números de Ponto Flutuante.</li>
-                <ul>
-                    <li>Adição (+).</li>
-                    <ul class="code">let numero1 = 10;<br>
-                        let numero2 = 5;<br>
-                        let resultado = numero1 + numero2;<br>
-                        console.log(resultado); <br>// Saída: 15
-                    </ul>
-                    <li>Subtração (-).</li>
-                    <ul class="code">let numero1 = 10;
-                        let numero2 = 5;
-                        let resultado = numero1 - numero2;
-                        console.log(resultado); // Saída: 5
-                        
-                    </ul>
-                    <li>Multiplicação (*).</li>
-                    <ul class="code">let numero1 = 10;<br>
-                        let numero2 = 5;<br>
-                        let resultado = numero1 * numero2;<br>
-                        console.log(resultado);<br> // Saída: 50
-                        
-                    </ul>
-                    <li>Divisão (/).</li>
-                    <ul class="code">let numero1 = 10;<br>
-                        let numero2 = 5;<br>
-                        let resultado = numero1 / numero2;<br>
-                        console.log(resultado);<br> // Saída: 2
-                        
-                    </ul>
-                    <li>Operações com Números de Ponto Flutuante.</li>
-                    <ul class="code">let numero1 = 3.14;<br>
-                        let numero2 = 2.5;<br>
-                        let resultado1 = numero1 + numero2;<br>
-                        console.log(resultado1);<br> // Saída: 5.64<br>
-                        
-                        let resultado2 = numero1 * numero2;<br>
-                        console.log(resultado2); <br>// Saída: 7.85
-                        
-                    </ul>
-                    <li>Cuidado com a Precisão em Operações de Ponto Flutuante.</li>
-                    <p>Lembre-se que, devido à natureza binária de como os números de ponto flutuante são representados internamente no computador, algumas operações podem levar a imprecisões. Por exemplo:</p>
-                    <ul class="code">let numero1 = 0.1;<br>
-                        let numero2 = 0.2;<br>
-                        let resultado = numero1 + numero2;<br>
-                        console.log(resultado);<br> // Saída: 0.30000000000000004  
-                    </ul>
-                    <p>Nesse caso, a soma aparentemente simples de 0.1 e 0.2 resultou em uma pequena imprecisão. Para situações em que a precisão é crítica, é recomendado utilizar funções como toFixed, toPrecision ou Number.EPSILON para melhor controle sobre a precisão dos resultados.</p>
-                    <ul class="code">let numero1 = 0.1;<br>
-                        let numero2 = 0.2;<br>
-                        let resultado = numero1 + numero2;<br>
-                        
-                       // Utilizando toFixed para formatar o resultado com duas casas decimais.<br>
-                        let resultadoFormatado = resultado.toFixed(2);<br>
-                        
-                        console.log(resultadoFormatado); <br>// Saída: "0.30"
-                         
-                    </ul>
-                </ul>
-            </ul>
-            <ul>
-                <li>Notação Exponencial em Números (por exemplo, 1e6 representa 1 milhão).</li>
-            </ul>
-            <ul>
-                <li>Funções Utilitárias para Trabalhar com Números (por exemplo, parseInt, parseFloat, etc.).</li>
-            </ul>
+        <li>Tipos de dados em JavaScript</li>
+        <ul><li>Números</li>
+            <ul><li><a href="inteiros_e_numeros_de_ponto_flutuante.html">Inteiros e Números de Ponto Flutuante</a></li></ul>
+            <ul><li>Operações Aritméticas com Números</li></ul>
+            <ul><li>NaN (Not-a-Number) e Infinity</li></ul>
+            <ul><li>Conversão de Tipos de Dados para Números</li></ul>
+            <ul><li>Métodos e Propriedades Relacionados a Números (por exemplo, toFixed, toPrecision, etc.)</li></ul>
+            <ul><li>Operações Matemáticas (por exemplo, Math.round, Math.floor, Math.random, etc.)</li></ul>
+        </ul>
+        <ul><li>Strings</li></ul>
+        <ul><li>Booleanos</li></ul>
+        <ul><li>Null</li></ul>
+        <ul><li>Undefined</li></ul>
     </ul>
+    <ul>
+        <li>Operadores</li>
+        <ul><li>Operadores Aritméticos</li></ul>
+        <ul><li>Operadores de Atribuição</li></ul>
+        <ul><li>Operadores de Comparação</li></ul>
+        <ul><li>Operadores Lógicos</li></ul>
+        <ul><li>Operadores de Concatenação</li></ul>
+    </ul>
+    <ul>
+        <li>Estrutura de Controle</li>
+        <ul><li>Condicional</li></ul>
+        <ul><li>Loops</li></ul>
+    </ul>
+    <ul>
+        <li>Funções</li>
+        <ul><li>Declaração de Funções</li></ul>
+        <ul><li>Chamada de Funções</li></ul>
+        <ul><li>Parâmetros de Funções</li></ul>
+        <ul><li>Retorno de Valores em Funções</li></ul>
+        <ul><li>Funções Anônimas e Expressões de Função</li></ul>
+        <ul><li>Escopo de Variáveis em Funções</li></ul>
+        <ul><li>Funções Recursivas</li></ul>
+        <ul><li>Arrow Functions (Funções de seta)</li></ul>
+        <ul><li>Funções de Callback</li></ul>
+        <ul><li>Closures (Funções Internas)</li></ul>
+        <ul><li>IIFE (Immediately Invoked Function Expression)</li></ul>
+    </ul>
+    <ul>
+        <li>Arrays</li>
+        <ul><li>Criação e Declaração de Arrays</li></ul>
+        <ul><li>Acesso a Elementos do Array</li></ul>
+        <ul><li>Modificação de Elementos do Array</li></ul>
+        <ul><li>Adição e Remoção de Elementos do Array</li></ul>
+        <ul><li>Percorrendo Arrays (por exemplo, com loops)</li></ul>
+        <ul><li>Métodos de Array (por exemplo, push, pop, shift, unshift, splice, etc.)</li></ul>
+        <ul><li>Arrays Multidimensionais (Arrays de Arrays)</li></ul>
+        <ul><li>Métodos de Iteração (por exemplo, forEach, map, filter, reduce, etc.)</li></ul>
+        <ul><li>Operações comuns em Arrays (por exemplo, ordenação, busca, etc.)</li></ul>
+    </ul>
+    <ul>
+        <li>Objetos</li>
+    </ul>
+   
     
 </body>
 </html>

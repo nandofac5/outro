@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo JavaScript</title>
+    <link rel="stylesheet" href="estyles.css">    
+</head>
+<body>
+    <h1>JavaScript</h1>
+
+    <h2>Inteiros e Números de Ponto Flutuante.</h2>
+   
+            <ul>
+                <li>Representação de Números Inteiros em JavaScript.</li>
+                <ul class="code">let inteiro1 = 42; // Número inteiro<br>
+                    let inteiro2 = -15; // Número inteiro negativo<br>
+                    let inteiro3 = 0; // O número zero também é um inteiro
+                    </ul>
+            </ul>
+            <ul>
+                <li>Representação de Números de Ponto Flutuante (números com casas decimais).</li>
+                <ul class="code">let decimal1 = 3.14; // Número de ponto flutuante<br>
+                    let decimal2 = -2.5; // Número de ponto flutuante negativo<br>
+                    let decimal3 = 0.75; // Número de ponto flutuante entre 0 e 1
+                </ul>
+            </ul>
+            <ul>
+                <li>Operações Aritméticas com Inteiros e Números de Ponto Flutuante.</li>
+                <ul>
+                    <li>Adição (+).</li>
+                    <ul class="code">let numero1 = 10;<br>
+                        let numero2 = 5;<br>
+                        let resultado = numero1 + numero2;<br>
+                        console.log(resultado); <br>// Saída: 15
+                    </ul>
+                    <li>Subtração (-).</li>
+                    <ul class="code">let numero1 = 10;<br>
+                        let numero2 = 5;<br>
+                        let resultado = numero1 - numero2;<br>
+                        console.log(resultado);<br> // Saída: 5
+                        
+                    </ul>
+                    <li>Multiplicação (*).</li>
+                    <ul class="code">let numero1 = 10;<br>
+                        let numero2 = 5;<br>
+                        let resultado = numero1 * numero2;<br>
+                        console.log(resultado);<br> // Saída: 50
+                        
+                    </ul>
+                    <li>Divisão (/).</li>
+                    <ul class="code">let numero1 = 10;<br>
+                        let numero2 = 5;<br>
+                        let resultado = numero1 / numero2;<br>
+                        console.log(resultado);<br> // Saída: 2
+                        
+                    </ul>
+                    <li>Operações com Números de Ponto Flutuante.</li>
+                    <ul class="code">let numero1 = 3.14;<br>
+                        let numero2 = 2.5;<br>
+                        let resultado1 = numero1 + numero2;<br>
+                        console.log(resultado1);<br> // Saída: 5.64<br>
+                        
+                        let resultado2 = numero1 * numero2;<br>
+                        console.log(resultado2); <br>// Saída: 7.85
+                        
+                    </ul>
+                    <li>Cuidado com a Precisão em Operações de Ponto Flutuante.</li>
+                    <p>Lembre-se que, devido à natureza binária de como os números de ponto flutuante são representados internamente no computador, algumas operações podem levar a imprecisões. Por exemplo:</p>
+                    <ul class="code">let numero1 = 0.1;<br>
+                        let numero2 = 0.2;<br>
+                        let resultado = numero1 + numero2;<br>
+                        console.log(resultado);<br> // Saída: 0.30000000000000004  
+                    </ul>
+                    <p>Nesse caso, a soma aparentemente simples de 0.1 e 0.2 resultou em uma pequena imprecisão. Para situações em que a precisão é crítica, é recomendado utilizar funções como toFixed, toPrecision ou Number.EPSILON para melhor controle sobre a precisão dos resultados.</p>
+                    <ul class="code">let numero1 = 0.1;<br>
+                        let numero2 = 0.2;<br>
+                        let resultado = numero1 + numero2;<br>
+                        
+                       // Utilizando toFixed para formatar o resultado com duas casas decimais.<br>
+                        let resultadoFormatado = resultado.toFixed(2);<br>
+                        
+                        console.log(resultadoFormatado); <br>// Saída: "0.30"
+                         
+                    </ul>
+                </ul>
+            </ul>
+            <ul>
+                <li>Notação Exponencial em Números (por exemplo, 1e6 representa 1 milhão).</li>
+            </ul>
+            <ul>
+                <li>Funções Utilitárias para Trabalhar com Números (por exemplo, parseInt, parseFloat, etc.).</li>
+            </ul>
+    </ul>
+    
+</body>
+</html>
